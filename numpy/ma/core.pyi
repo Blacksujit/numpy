@@ -1262,14 +1262,14 @@ class MaskedArray(ndarray[_ShapeT_co, _DTypeT_co]):
     @overload  # type: ignore[override]
     def compress[ArrayT: np.ndarray](
         self,
-        condition: _ArrayLikeBool_co,
+        condition: _ArrayLikeInt_co,
         axis: _ShapeLike | None,
         out: ArrayT,
     ) -> ArrayT: ...
     @overload
     def compress[ArrayT: np.ndarray](
         self,
-        condition: _ArrayLikeBool_co,
+        condition: _ArrayLikeInt_co,
         axis: _ShapeLike | None = None,
         *,
         out: ArrayT,
@@ -1277,14 +1277,14 @@ class MaskedArray(ndarray[_ShapeT_co, _DTypeT_co]):
     @overload
     def compress(
         self,
-        condition: _ArrayLikeBool_co,
+        condition: _ArrayLikeInt_co,
         axis: None = None,
         out: None = None,
     ) -> MaskedArray[tuple[int], _DTypeT_co]: ...
     @overload
     def compress(
         self,
-        condition: _ArrayLikeBool_co,
+        condition: _ArrayLikeInt_co,
         axis: _ShapeLike | None = None,
         out: None = None,
     ) -> MaskedArray[_AnyShape, _DTypeT_co]: ...
@@ -3435,32 +3435,32 @@ def any[ArrayT: np.ndarray](
 # which wouldn't work here for array-like inputs, so we need additional overloads.
 @overload
 def compress[ScalarT: np.generic](
-    condition: _ArrayLikeBool_co,
+    condition: _ArrayLikeInt_co,
     a: _ArrayLike[ScalarT],
     axis: None = None,
     out: None = None,
 ) -> _Masked1D[ScalarT]: ...
 @overload
 def compress[ScalarT: np.generic](
-    condition: _ArrayLikeBool_co,
+    condition: _ArrayLikeInt_co,
     a: _ArrayLike[ScalarT],
     axis: _ShapeLike | None = None,
     out: None = None,
 ) -> _MaskedArray[ScalarT]: ...
 @overload
-def compress(condition: _ArrayLikeBool_co, a: ArrayLike, axis: None = None, out: None = None) -> _Masked1D[Incomplete]: ...
+def compress(condition: _ArrayLikeInt_co, a: ArrayLike, axis: None = None, out: None = None) -> _Masked1D[Incomplete]: ...
 @overload
 def compress(
-    condition: _ArrayLikeBool_co,
+    condition: _ArrayLikeInt_co,
     a: ArrayLike,
     axis: _ShapeLike | None = None,
     out: None = None,
 ) -> _MaskedArray[Incomplete]: ...
 @overload
-def compress[ArrayT: np.ndarray](condition: _ArrayLikeBool_co, a: ArrayLike, axis: _ShapeLike | None, out: ArrayT) -> ArrayT: ...
+def compress[ArrayT: np.ndarray](condition: _ArrayLikeInt_co, a: ArrayLike, axis: _ShapeLike | None, out: ArrayT) -> ArrayT: ...
 @overload
 def compress[ArrayT: np.ndarray](
-    condition: _ArrayLikeBool_co,
+    condition: _ArrayLikeInt_co,
     a: ArrayLike,
     axis: _ShapeLike | None = None,
     *,

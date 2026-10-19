@@ -1660,56 +1660,56 @@ def shape(a: ArrayLike) -> _AnyShape: ...
 #
 @overload  # Nd T, axis=None  (default)
 def compress[ScalarT: np.generic](
-    condition: _ArrayLikeBool_co,
+    condition: _ArrayLikeInt_co,
     a: _ArrayLike[ScalarT],
     axis: None = None,
     out: None = None,
 ) -> Array1D[ScalarT]: ...
 @overload  # Nd, axis=None  (fallback)
 def compress(
-    condition: _ArrayLikeBool_co,
+    condition: _ArrayLikeInt_co,
     a: ArrayLike,
     axis: None = None,
     out: None = None,
 ) -> Array1D[Any]: ...
 @overload  # >=1d T, axis=<given>
 def compress[ShapeT: tuple[int, *tuple[int, ...]], DTypeT: np.dtype](
-    condition: _ArrayLikeBool_co,
+    condition: _ArrayLikeInt_co,
     a: np.ndarray[ShapeT, DTypeT],
     axis: SupportsIndex,
     out: None = None,
 ) -> np.ndarray[ShapeT, DTypeT]: ...
 @overload  # 0d T, axis=<given>
 def compress[DTypeT: np.dtype](
-    condition: _ArrayLikeBool_co,
+    condition: _ArrayLikeInt_co,
     a: np.ndarray[tuple[()], DTypeT],
     axis: SupportsIndex,
     out: None = None,
 ) -> np.ndarray[_1D, DTypeT]: ...
 @overload  # ?d T, axis=<given>  (fallback)
 def compress[ScalarT: np.generic](
-    condition: _ArrayLikeBool_co,
+    condition: _ArrayLikeInt_co,
     a: _ArrayLike[ScalarT],
     axis: SupportsIndex,
     out: None = None,
 ) -> NDArray[ScalarT]: ...
 @overload  # ?d, axis=<given>  (fallback)
 def compress(
-    condition: _ArrayLikeBool_co,
+    condition: _ArrayLikeInt_co,
     a: ArrayLike,
     axis: SupportsIndex,
     out: None = None,
 ) -> NDArray[Any]: ...
 @overload  # out=<given>  (positional)
 def compress[ArrayT: np.ndarray](
-    condition: _ArrayLikeBool_co,
+    condition: _ArrayLikeInt_co,
     a: ArrayLike,
     axis: SupportsIndex | None,
     out: ArrayT,
 ) -> ArrayT: ...
 @overload  # out=<given>  (keyword)
 def compress[ArrayT: np.ndarray](
-    condition: _ArrayLikeBool_co,
+    condition: _ArrayLikeInt_co,
     a: ArrayLike,
     axis: SupportsIndex | None = None,
     *,

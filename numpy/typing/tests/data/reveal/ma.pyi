@@ -335,6 +335,9 @@ assert_type(MAR_f4.compress([True, False]), np.ma.MaskedArray[tuple[int], np.dty
 assert_type(MAR_f4.compress([True, False], axis=0), MaskedArray[np.float32])
 assert_type(MAR_f4.compress([True, False], axis=0, out=MAR_subclass), MaskedArraySubclassC)
 assert_type(MAR_f4.compress([True, False], 0, MAR_subclass), MaskedArraySubclassC)
+assert_type(MAR_f4.compress([0, 1]), np.ma.MaskedArray[tuple[int], np.dtype[np.float32]])
+assert_type(MAR_f4.compress(AR_LIKE_i, axis=0), MaskedArray[np.float32])
+assert_type(np.ma.compress(AR_LIKE_i, MAR_f4), np.ma.MaskedArray[tuple[int], np.dtype[np.float32]])
 
 assert_type(np.ma.compressed(MAR_i8), np.ndarray[tuple[int], np.dtype[np.int64]])
 assert_type(np.ma.compressed([[1, 2, 3]]), np.ndarray[tuple[int], np.dtype])
