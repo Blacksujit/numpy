@@ -512,9 +512,12 @@ assert_type(MAR_2d_f4.astype("f2"), np.ma.MaskedArray[tuple[int, int], np.dtype[
 
 assert_type(MAR_f8.__deepcopy__(), MaskedArray[np.float64])
 
-assert_type(MAR_f8.argsort(), MaskedArray[np.intp])
-assert_type(MAR_f8.argsort(axis=0, kind="heap", order=("x", "y")), MaskedArray[np.intp])
-assert_type(MAR_f8.argsort(endwith=True, fill_value=1.5, stable=False), MaskedArray[np.intp])
+assert_type(MAR_f8.argsort(), NDArray[np.intp])
+assert_type(MAR_f8.argsort(axis=0, kind="heap", order=("x", "y")), NDArray[np.intp])
+assert_type(MAR_f8.argsort(endwith=True, fill_value=1.5, stable=False), NDArray[np.intp])
+
+assert_type(np.ma.argsort(MAR_f8, axis=None), np.ndarray[tuple[int], np.dtype[np.intp]])
+assert_type(np.ma.argsort(MAR_f8, axis=0), NDArray[np.intp])
 
 assert_type(MAR_2d_f4.flat, np.ma.core.MaskedIterator[tuple[int, int], np.dtype[np.float32]])
 assert_type(MAR_2d_f4.flat.ma, np.ma.MaskedArray[tuple[int, int], np.dtype[np.float32]])

@@ -2423,7 +2423,7 @@ class MaskedArray(ndarray[_ShapeT_co, _DTypeT_co]):
         *,
         stable: bool = False,
         descending: bool = False,
-    ) -> _MaskedArray[intp]: ...
+    ) -> NDArray[intp]: ...
 
     # keep in sync with `MaskedArray.argmin` (below) and `ndarray.argmax`
     @override  # type: ignore[override]
@@ -3871,30 +3871,6 @@ def argsort(
     stable: bool | None = None,
     descending: bool | None = None,
 ) -> Array1D[np.intp]: ...
-@overload  # MaskedArray, axis: None
-def argsort(
-    a: MaskedArray,
-    axis: None,
-    kind: _SortKind | None = None,
-    order: str | Sequence[str] | None = None,
-    endwith: bool | None = True,
-    fill_value: _ScalarLike_co | None = None,
-    *,
-    stable: bool | None = None,
-    descending: bool | None = None,
-) -> _Masked1D[np.intp]: ...
-@overload  # MaskedArray, axis: int-like
-def argsort(
-    a: MaskedArray,
-    axis: SupportsIndex,
-    kind: _SortKind | None = None,
-    order: str | Sequence[str] | None = None,
-    endwith: bool | None = True,
-    fill_value: _ScalarLike_co | None = None,
-    *,
-    stable: bool | None = None,
-    descending: bool | None = None,
-) -> _MaskedArray[np.intp]: ...
 @overload  # array-like, axis: None
 def argsort(
     a: ArrayLike,
