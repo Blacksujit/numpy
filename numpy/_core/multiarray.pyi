@@ -4419,7 +4419,7 @@ class nditer:
         op_dtypes: Sequence[DTypeLike | None] | None = None,
         order: _OrderKACF = "K",
         casting: _CastingKind = "safe",
-        op_axes: Sequence[Sequence[SupportsIndex]] | None = None,
+        op_axes: Sequence[Sequence[SupportsIndex] | None] | None = None,
         itershape: _ShapeLike | None = None,
         buffersize: SupportsIndex = 0,
     ) -> None: ...

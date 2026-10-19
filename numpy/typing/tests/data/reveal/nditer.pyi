@@ -9,6 +9,7 @@ assert_type(np.nditer([0, 1], flags=["c_index"]), np.nditer)
 assert_type(np.nditer([0, 1], op_flags=[["readonly", "readonly"]]), np.nditer)
 assert_type(np.nditer([0, 1], op_dtypes=np.int_), np.nditer)
 assert_type(np.nditer([0, 1], order="C", casting="no"), np.nditer)
+assert_type(np.nditer([[0, 1], [0, 1, 2], None], op_axes=[[0, -1], [-1, 0], None]), np.nditer)
 
 assert_type(nditer_obj.dtypes, tuple[np.dtype, ...])
 assert_type(nditer_obj.finished, bool)
