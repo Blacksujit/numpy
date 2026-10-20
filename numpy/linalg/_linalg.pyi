@@ -2047,6 +2047,14 @@ def outer(x1: _ToArrayComplex_1d, x2: _AsArrayC128_1d, /) -> Array2D[np.complex1
 def outer(x1: _ArrayLike1D[_AnyScalarT], x2: _ArrayLike1D[_AnyScalarT], /) -> Array2D[_AnyScalarT]: ...  # noqa: UP047
 @overload  # ~O, ~O
 def outer[T](x1: _ArrayLike1D[np.object_[T]], x2: _ArrayLike1D[np.object_[T]], /) -> Array2D[np.object_[T]]: ...
+@overload  # ~O, +O
+def outer(
+    x1: _SupportsArray[_1D, np.dtype[np.object_]], x2: _ArrayLike1D2[np.number | np.object_, complex], /
+) -> Array2D[np.object_]: ...
+@overload  # +O, ~O
+def outer(
+    x1: _ArrayLike1D2[np.number | np.object_, complex], x2: _SupportsArray[_1D, np.dtype[np.object_]], /
+) -> Array2D[np.object_]: ...
 @overload  # fallback
 def outer(x1: _ToArrayComplex_1d, x2: _ToArrayComplex_1d, /) -> Array2D[Any]: ...
 
